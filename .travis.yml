@@ -6,17 +6,5 @@ php:
   - '7.0'
   - '7.1'
 
-env:
-  - DB=mysql
-
-before_script:
-  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
-
-jobs:
-  include:
-    - &TEST
-      script:
-        - vendor/bin/phpunit --testsuite integration
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --testsuite unit --coverage-clover build/logs/clover.xml; else vendor/bin/phpunit --testsuite unit; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
+script:
+  - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
