@@ -13,6 +13,6 @@ deploy:
   provider: heroku
   api_key: "9589c25b-ef12-438f-8ab6-712594e973b0"
   app: industry-matthieu
-  on: '7.0'
+  on: '7.1'
   repo: Matthieu972/Industry5IW2
   branch: feature/procfile
