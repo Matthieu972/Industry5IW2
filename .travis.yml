@@ -6,8 +6,8 @@ php:
 
 script:
   - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-#  - docker run --rm -v "$PWD":/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose --rules=@Symfony,@PSR2
-#  - docker run --rm -v "$PWD":/app phpqa/security-checker security:check
+  - docker run --rm -v $PWD:/app phpqa/php-cs-fixer fix --show-progress=estimating --verbose --rules=@Symfony,@PSR2
+  - docker run --rm -v $PWD:/app phpqa/security-checker security:check
 
 deploy:
   provider: heroku
@@ -15,4 +15,4 @@ deploy:
   app: industry-matthieu
   on: '7.1'
   repo: Matthieu972/Industry5IW2
-  branch: feature/procfile
+  branch: master
