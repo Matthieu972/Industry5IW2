@@ -1,10 +1,13 @@
 language: php
 
 php:
-  - '5.4'
-  - '5.6'
   - '7.0'
   - '7.1'
 
 script:
   - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "9589c25b-ef12-438f-8ab6-712594e973b0"
